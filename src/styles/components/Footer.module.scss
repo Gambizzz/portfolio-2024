@@ -1,0 +1,28 @@
+@import '../../styles/variables.scss';
+
+.footer {
+  margin-top: auto;
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.socialLinks {
+  list-style: none;
+  padding: 0;
+}
+
+.socialLinks li {
+  display: inline;
+  margin: 0 10px;
+}
+
+.socialLinks a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.socialLinks a:hover {
+  text-decoration: underline;
+}
