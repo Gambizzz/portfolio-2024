@@ -1,0 +1,23 @@
+@import '../../styles/variables.scss';
+
+.hero {
+  background-color: $bg-color;
+}
+
+.icon {
+  width: 1000px;
+  height: auto;
+  animation: zoomIn 3s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(0.2);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
