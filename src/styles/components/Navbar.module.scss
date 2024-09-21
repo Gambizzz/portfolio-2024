@@ -8,6 +8,12 @@
   top: 0;
   z-index: 1000;
   font-family: "Raleway", sans-serif;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+
+  &.hidden {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
 
   ul {
     list-style: none;
@@ -16,6 +22,8 @@
     align-items: center;
     margin: 0;
     padding: 0;
+    width: 100%;
+    box-sizing: border-box;
 
     li {
       a {
@@ -25,6 +33,11 @@
         font-size: 22px;
         font-weight: bold;
         cursor: none;
+        transition: transform 0.3s ease;
+      }
+
+      &:hover {
+        transform: scale(1.1);
       }
     }
 
@@ -34,8 +47,151 @@
       img {
         max-height: 30px;
         height: auto;
+        animation: oscillate 4s infinite ease-in-out;
       }
     }
   }
 }
+
+.showNavbarButton {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 35px;
+  height: 35px;
+  background-color: $nav-text-color;
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: none;
+  z-index: 1001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.3s ease;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -3.5px;
+    left: -3.5px;
+    width: 120%;
+    height: 120%;
+    border-radius: 50%;
+    border: 2px solid rgba(181, 55, 226, 0.705);
+    box-sizing: border-box;
+    z-index: -1;
+    transition: border 0.3s ease;
+  }
+
+  &:hover {
+    transform: scale(1.2);
+  }
+}
+
+
+@keyframes oscillate {
+  0% {
+    transform: rotate(0.5deg);
+  }
+  50% {
+    transform: rotate(-0.5deg);
+  }
+  100% {
+    transform: rotate(0.5deg);
+  }
+}
+
+// Petits écrans
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.5%;
+
+    ul {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    li {
+      margin: 8px 0; 
+      a {
+        padding: 15px;
+        font-size: 16px;
+      }
+    }
+
+    .logo {
+      margin: 0 15px;
+
+      img {
+        max-height: 30px;
+        width: 200px;
+        height: auto;
+        animation: oscillate 4s infinite ease-in-out;
+      }
+    }
+  }
+
+  .navbar.hidden {
+    top: -200px;
+  }
+
+  .showNavbarButton {
+    width: 50px;
+    height: 50px;
+
+    &::before {
+      top: -7px;
+      left: -7px;
+      width: 130%;
+      height: 130%;
+    }
+  }
+}
+
+// Très petits écrans
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0.5%;
+
+    ul {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    li {
+      margin: 8px 0; 
+      a {
+        padding: 10px;
+        font-size: 14px;
+      }
+    }
+  }
+
+  .navbar.hidden {
+    top: -200px;
+  }
+
+  .showNavbarButton {
+    width: 50px;
+    height: 50px;
+
+    &::before {
+      top: -7px;
+      left: -7px;
+      width: 130%;
+      height: 130%;
+    }
+  }
+}
+
+
+
 

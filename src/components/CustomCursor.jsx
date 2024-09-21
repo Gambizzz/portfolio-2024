@@ -3,7 +3,7 @@ import styles from '../styles/components/CurstomCursor.module.scss';
 
 const CustomCursor = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [isHoveringLink, setIsHoveringLink] = useState(false);
+  const [isHovering, setIsHovering] = useState(false);
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -11,14 +11,14 @@ const CustomCursor = () => {
     };
 
     const handleMouseOver = (e) => {
-      if (e.target.tagName === 'A') {
-        setIsHoveringLink(true);
+      if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON') {
+        setIsHovering(true);
       }
     };
 
     const handleMouseOut = (e) => {
-      if (e.target.tagName === 'A') {
-        setIsHoveringLink(false);
+      if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON') {
+        setIsHovering(false);
       }
     };
 
@@ -35,11 +35,12 @@ const CustomCursor = () => {
 
   return (
     <div
-      className={`${styles.cursor} ${isHoveringLink ? styles.hoverLink : ''}`}
+      className={`${styles.cursor} ${isHovering ? styles.hoverLink : ''}`}
       style={{ top: position.y, left: position.x }}
     />
   );
 };
 
 export default CustomCursor;
+
 
