@@ -8,4 +8,18 @@
   pointer-events: none;
   transform: translate(-30%, -25%);
   z-index: 9999;
+  transition: transform 0.2s ease, width 0.2s ease, height 0.2s ease, background-image 0.2s ease;
 }
+
+.hoverLink {
+  width: 20px; /* Taille réduite pour le curseur sur les liens */
+  height: 20px;
+  background-color: rgba(120, 24, 154, 0.3); /* Cercle transparent violet */
+  border: 1px solid rgb(255, 99, 71); /* Bordure rouge */
+  background-image: none; /* Supprime l'image SVG */
+  border-radius: 50%; /* Rend le curseur parfaitement circulaire */
+  transform: translate(-50%, -50%); /* Centrage correct du cercle */
+  transition: width 0.2s ease, height 0.2s ease, background-color 0.2s ease, border 0.2s ease;
+}
+
+
