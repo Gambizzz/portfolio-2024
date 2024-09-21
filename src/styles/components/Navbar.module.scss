@@ -1,32 +1,45 @@
-@import url('https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap');
 @import '../../styles/variables.scss';
 
 .navbar {
-  background-color: #333;
-  padding: 10px;
+  padding: 1%;
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 1000;
-  font-family: "Edu VIC WA NT Beginner", cursive;
+  font-family: "Raleway", sans-serif;
 
   ul {
     list-style: none;
     display: flex;
     justify-content: space-around;
+    align-items: center;
     margin: 0;
     padding: 0;
 
-    li a {
-      color: white;
-      text-decoration: none;
-      padding: 10px;
-      font-size: 28px;
-      transition: color 0.3s;
+    li {
+      display: inline-block;
 
-      &:hover {
-        color: #ff9800;
+      a {
+        color: $nav-text-color;
+        text-decoration: none;
+        padding: 30px;
+        font-size: 22px;
+        cursor: none;
+      }
+    }
+
+    .logo {
+      margin: 0 15px;
+      text-align: center;
+
+      img {
+        max-height: 30px;
+        height: auto;
+        display: flex;
+        margin: 0 auto;
       }
     }
   }
 }
+
