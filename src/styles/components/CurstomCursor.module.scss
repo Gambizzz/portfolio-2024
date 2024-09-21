@@ -1,0 +1,11 @@
+.cursor {
+  position: fixed;
+  width: 100px;
+  height: 100px;
+  background-image: url('/images/cursor.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  transform: translate(-30%, -25%);
+  z-index: 9999;
+}
