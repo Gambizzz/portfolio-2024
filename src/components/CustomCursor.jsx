@@ -11,13 +11,13 @@ const CustomCursor = () => {
     };
 
     const handleMouseOver = (e) => {
-      if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON') {
+      if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.closest('svg')) {
         setIsHovering(true);
       }
     };
 
     const handleMouseOut = (e) => {
-      if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON') {
+      if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.closest('svg')) {
         setIsHovering(false);
       }
     };
@@ -36,7 +36,7 @@ const CustomCursor = () => {
   return (
     <div
       className={`${styles.cursor} ${isHovering ? styles.hoverLink : ''}`}
-      style={{ top: position.y, left: position.x }}
+      style={{ top: `${position.y}px`, left: `${position.x}px` }}
     />
   );
 };
