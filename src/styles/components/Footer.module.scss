@@ -1,28 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap');
 @import '../../styles/variables.scss';
 
 .footer {
   margin-top: auto;
-  background-color: #333;
-  color: #fff;
+  color: $nav-text-color;
+  font-family: "Raleway", sans-serif;
   padding: 20px;
-  text-align: center;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.copyright {
+  margin: 0;
 }
 
 .socialLinks {
   list-style: none;
   padding: 0;
+  margin: 0;
+  display: flex;
 }
 
 .socialLinks li {
-  display: inline;
   margin: 0 10px;
 }
 
 .socialLinks a {
-  color: #fff;
+  position: relative;
+  display: inline-block;
+  color: $nav-text-color;
   text-decoration: none;
+  cursor: none;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  width: 100px;
+  text-align: center;
 }
 
-.socialLinks a:hover {
-  text-decoration: underline;
+.socialLinks svg {
+  font-size: 2.5rem;
+  cursor: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
+
+.socialLinks a:hover svg {
+  opacity: 1;
+  visibility: visible;
+}
+
+.socialLinks a span {
+  display: block;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.socialLinks a:hover span {
+  opacity: 0;
+  visibility: hidden;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+
+
+
+
