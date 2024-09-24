@@ -6,16 +6,12 @@ html, body {
 
 main {
   min-height: 100vh;
-  overflow-x: hidden;
-  overflow-y: hidden;
 }
 
 section {
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  overflow: visible;
-  position: relative;
 }

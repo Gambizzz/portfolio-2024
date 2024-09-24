@@ -1,2 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap');
 @import '../../styles/variables.scss';
+
+.about {
+  font-family: 'Raleway', sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 2rem; // Espace intérieur de la carte
+  overflow: hidden;
+  transition: transform 0.8s ease, filter 0.8s ease; // Transition plus longue pour une animation plus fluide
+  filter: blur(4px); // Flou par défaut
+  transform: scale(0.8); // Réduction par défaut
+  width: 85%; // Largeur de la carte
+  height: auto;
+  max-height: 300px; // Hauteur fixe pour la carte
+  z-index: 1; // Z-index pour la carte non-active
+}
+
+.card.active {
+  filter: blur(0); // Pas de flou sur la carte active
+  transform: scale(1.1); // Échelle normale pour la carte active
+  z-index: 2; // Z-index pour la carte active
+}
+
+.cardNumber {
+  font-size: 4rem;
+  font-weight: bold;
+  margin-right: 1rem;
+  color: $nav-text-color;
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  text-align: justify;
+}
+
+.cardText {
+  font-size: 1.3rem;
+  color: black;
+  line-height: 1.4;
+  overflow: visible; /* Assure que tout le texte est visible */
+}
+
+
+
+
 
