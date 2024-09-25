@@ -1,0 +1,52 @@
+.bubbles {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.bubble {
+  position: absolute;
+  background: radial-gradient(circle, rgba(254, 88, 62, 0.723), rgba(255, 98, 174, 0.322));
+  border-radius: 50%;
+  box-shadow: inset -10px -10px 15px rgba(249, 208, 253, 0.301), inset 10px 10px 20px rgba(255, 225, 251, 0.586), 0 5px 15px rgba(227, 63, 26, 0.524);
+  opacity: 1;
+  pointer-events: none;
+  transition: transform 0.2s ease-out;
+}
+
+.bubble1 { width: 50px; height: 50px; left: 10%; }
+.bubble2 { width: 100px; height: 100px; left: 60%; }
+.bubble3 { width: 75px; height: 75px; left: 30%; }
+.bubble4 { width: 60px; height: 60px; left: 80%; }
+.bubble5 { width: 90px; height: 90px; left: 20%; }
+.bubble6 { width: 70px; height: 70px; left: 50%; }
+.bubble7 { width: 80px; height: 80px; left: 40%; }
+.bubble8 { width: 55px; height: 55px; left: 65%; }
+.bubble9 { width: 110px; height: 110px; left: 10%; }
+.bubble10 { width: 95px; height: 95px; left: 55%; }
+.bubble11 { width: 85px; height: 85px; left: 15%; }
+.bubble12 { width: 65px; height: 65px; left: 75%; }
+.bubble13 { width: 50px; height: 50px; left: 35%; }
+.bubble14 { width: 105px; height: 105px; left: 70%; }
+.bubble15 { width: 75px; height: 75px; left: 85%; }
+.bubble16 { width: 120px; height: 120px; left: 25%; }
+.bubble17 { width: 65px; height: 65px; left: 45%; }
+.bubble18 { width: 90px; height: 90px; left: 80%; }
+.bubble19 { width: 60px; height: 60px; left: 5%; }
+.bubble20 { width: 70px; height: 70px; left: 50%; }
+.bubble21 { width: 45px; height: 45px; left: 12%; }
+.bubble22 { width: 85px; height: 85px; left: 65%; }
+.bubble23 { width: 70px; height: 70px; left: 35%; }
+.bubble24 { width: 55px; height: 55px; left: 85%; }
+.bubble25 { width: 95px; height: 95px; left: 20%; }
+.bubble26 { width: 65px; height: 65px; left: 30%; }
+.bubble27 { width: 75px; height: 75px; left: 40%; }
+.bubble28 { width: 50px; height: 50px; left: 70%; }
+.bubble29 { width: 100px; height: 100px; left: 90%; }
+.bubble30 { width: 60px; height: 60px; left: 25%; }
+
