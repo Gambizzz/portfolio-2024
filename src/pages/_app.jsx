@@ -1,4 +1,5 @@
 import '../styles/globals.scss';
+import '../../i18n';
 import Head from 'next/head';
 import CustomCursor from '../components/CustomCursor';
 import Bubbles from '../components/Bubbles';

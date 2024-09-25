@@ -3,7 +3,7 @@
 
 .footer {
   margin-top: auto;
-  color: $nav-text-color;
+  color: $nav-title-color;
   font-family: "Raleway", sans-serif;
   padding: 20px;
   box-sizing: border-box;
@@ -35,7 +35,7 @@
 .socialLinks a {
   position: relative;
   display: inline-block;
-  color: $nav-text-color;
+  color: $nav-title-color;
   text-decoration: none;
   cursor: none;
   font-size: 1.2rem;

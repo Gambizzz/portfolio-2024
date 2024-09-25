@@ -11,13 +11,13 @@ const CustomCursor = () => {
     };
 
     const handleMouseOver = (e) => {
-      if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.closest('svg')) {
+      if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.tagName === 'SPAN' || e.target.closest('svg')) {
         setIsHovering(true);
       }
     };
 
     const handleMouseOut = (e) => {
-      if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.closest('svg')) {
+      if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.tagName === 'SPAN' || e.target.closest('svg')) {
         setIsHovering(false);
       }
     };

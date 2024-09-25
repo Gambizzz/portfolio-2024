@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { FaGithub, FaLinkedin} from 'react-icons/fa';
 import { IoIosMail } from "react-icons/io";
 import styles from '../styles/components/Footer.module.scss';
 
 const Footer = () => {
+  const { t } = useTranslation();
   const [hoveredLink, setHoveredLink] = useState(null);
 
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
-        <p className='copyright'>&copy; {new Date().getFullYear()} Anelise Gambini. All rights reserved.</p>
+        <p className='copyright'>&copy; {new Date().getFullYear()} Anelise Gambini. {t('rights')}</p>
         <ul className={styles.socialLinks}>
           <li
             onMouseEnter={() => setHoveredLink('github')}
@@ -32,7 +34,7 @@ const Footer = () => {
             onMouseLeave={() => setHoveredLink(null)}
           >
             <a href="mailto:anelisegambini@yahoo.fr">
-              {hoveredLink === 'mail' ? <IoIosMail /> : 'Email me'}
+              {hoveredLink === 'mail' ? <IoIosMail /> : t('email')}
             </a>
           </li>
         </ul>

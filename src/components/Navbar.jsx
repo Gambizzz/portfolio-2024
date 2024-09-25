@@ -1,24 +1,23 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import styles from '../styles/components/Navbar.module.scss';
 
 const Navbar = () => {
   const [isNavbarVisible, setIsNavbarVisible] = useState(true);
   const [isButtonVisible, setIsButtonVisible] = useState(false);
   const [lastScrollTop, setLastScrollTop] = useState(0);
-  const [showButtonText, setShowButtonText] = useState("");
+  const { t, i18n } = useTranslation();
+  const [language, setLanguage] = useState(i18n.language);
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
 
       if (scrollTop > lastScrollTop) {
-        // Scrolling down
         setIsNavbarVisible(false);
         setIsButtonVisible(true);
       } else if (scrollTop < lastScrollTop) {
-        // Scrolling up
         if (scrollTop <= 0) {
-          // Reached the top of the page
           setIsNavbarVisible(true);
           setIsButtonVisible(false);
         }
@@ -31,15 +30,17 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollTop]);
 
+  const handleLanguageToggle = () => {
+    const newLang = language === 'en' ? 'fr' : 'en';
+    i18n.changeLanguage(newLang);
+    setLanguage(newLang);
+  };
+
   const handleButtonClick = () => {
     if (isNavbarVisible) {
-      // Hide navbar
       setIsNavbarVisible(false);
-      setShowButtonText("");
     } else {
-      // Show navbar
       setIsNavbarVisible(true);
-      setShowButtonText("");
     }
   };
 
@@ -47,24 +48,27 @@ const Navbar = () => {
     <div>
       <nav className={`${styles.navbar} ${!isNavbarVisible ? styles.hidden : ''}`}>
         <ul>
-          <li><a href="#hero">Home</a></li>
-          <li><a href="#about">About</a></li>
+          <li><a href="#hero">{t('Home')}</a></li>
+          <li><a href="#about">{t('About')}</a></li>
           <li className={styles.logo}>
             <img src="/images/logo-name.png" alt="Name logo" className={styles.icon} />
           </li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#projects">{t('Projects')}</a></li>
+          <li>
+            <button onClick={handleLanguageToggle} className={styles.languageToggle}>
+              {language === 'en' ? 'FR' : 'EN'}
+            </button>
+          </li>
         </ul>
       </nav>
 
-      <button className={`${styles.showNavbarButton} ${isButtonVisible ? styles.visible : ''}`} onClick={handleButtonClick}>
-        {showButtonText}
-      </button>
+      <button className={`${styles.showNavbarButton} ${isButtonVisible ? styles.visible : ''}`} onClick={handleButtonClick}></button>
     </div>
   );
 };
 
 export default Navbar;
+
 
 
 

@@ -1,7 +1,7 @@
 @import '../../styles/variables.scss';
 
 @font-face {
-  font-family: 'Welcome';
+  font-family: 'Title';
   src: url('/fonts/Nectarine DEMO.ttf') format('truetype');
 }
 
@@ -30,9 +30,9 @@
 .welcome {
   display: flex;
   flex-direction: row;
-  font-family: 'Welcome', sans-serif;
+  font-family: 'Title', sans-serif;
   font-size: 200px;
-  color: $nav-text-color;
+  color: $nav-title-color;
   letter-spacing: 20px;
   animation: grow 1.5s ease-out;
   transition: opacity 0.8s ease-out;
