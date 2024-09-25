@@ -8,7 +8,7 @@ const sections = [
   },
   {
     number: '02',
-    text: `Progressivement, mon intérêt s'est orienté vers le front-end, où j’ai découvert une véritable passion pour la création d’expériences utilisateurs immersives et intuitives. Curieuse et passionnée, j’ai commencé à explorer de manière autodidacte des technologies comme Next.js et de m'initier à la création 3D et aux animations, pour perfectionner mes compétences afin d’enrichir mes créations. Je suis particulièrement motivée par l'idée que chaque détail visuel compte, qu'il s'agisse de l’alignement des éléments ou de l'harmonie des couleurs, pour offrir une expérience utilisateur fluide et engageante.`,
+    text: `Progressivement, mon intérêt s'est orienté vers le front-end, où j’ai découvert une véritable passion pour la création d’expériences utilisateurs immersives et intuitives. Curieuse et passionnée, j’ai commencé à explorer de manière autodidacte des technologies comme Next.js et à m'initier à la création 3D et aux animations, pour perfectionner mes compétences afin d’enrichir mes créations. Je suis particulièrement motivée par l'idée que chaque détail visuel compte, qu'il s'agisse de l’alignement des éléments ou de l'harmonie des couleurs, pour offrir une expérience utilisateur fluide et engageante.`,
   },
   {
     number: '03',
@@ -24,17 +24,16 @@ const About = () => {
   const [activeIndex, setActiveIndex] = useState(null);
 
   const handleScroll = () => {
-    const cardElements = document.querySelectorAll(`.${styles.card}`);
+    const sectionElements = document.querySelectorAll(`.${styles.section}`);
     const windowHeight = window.innerHeight;
     let indexToSet = null;
 
-    cardElements.forEach((card, index) => {
-      const rect = card.getBoundingClientRect();
-      const cardTop = rect.top;
-      const cardBottom = rect.bottom;
+    sectionElements.forEach((section, index) => {
+      const rect = section.getBoundingClientRect();
+      const sectionTop = rect.top;
+      const sectionBottom = rect.bottom;
 
-      // Vérifiez si la carte est au centre de la fenêtre
-      if (cardTop < windowHeight / 2 && cardBottom > windowHeight / 2) {
+      if (sectionTop < windowHeight / 2 && sectionBottom > windowHeight / 2) {
         indexToSet = index;
       }
     });
@@ -44,7 +43,6 @@ const About = () => {
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
-    // Initial check for the current card on mount
     handleScroll();
 
     return () => {
@@ -57,19 +55,34 @@ const About = () => {
       {sections.map((section, index) => (
         <div
           key={index}
-          className={`${styles.card} ${index === activeIndex ? styles.active : ''}`}
+          className={`${styles.section} ${index === activeIndex ? styles.active : ''}`}
         >
-          <div className={styles.cardNumber}>{section.number}</div>
-          <div className={styles.cardContent}>
-            <p className={styles.cardText}>{section.text}</p>
+          <div className={styles.sectionNumber}>{section.number}</div>
+          <div className={styles.sectionContent}>
+            <p className={styles.sectionText}>{section.text}</p>
           </div>
+          {index < sections.length - 1 && <hr className={styles.separator} />}
         </div>
       ))}
+      <div className={styles.buttonContainer}>
+        <a href="/pdf/cv-FR.pdf" download>
+          <button className={styles.btn}>
+            <span className={styles.text}>CV français</span>
+          </button>
+        </a>
+        <a href="/pdf/second.pdf" download>
+          <button className={styles.btn}>
+            <span className={styles.text}>CV anglais</span>
+          </button>
+        </a>
+      </div>
     </section>
   );
 };
 
 export default About;
+
+
 
 
 

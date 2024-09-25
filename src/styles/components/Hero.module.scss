@@ -29,17 +29,21 @@
 
 .welcome {
   display: flex;
+  flex-direction: row;
   font-family: 'Welcome', sans-serif;
   font-size: 200px;
   color: $nav-text-color;
   letter-spacing: 20px;
   animation: grow 1.5s ease-out;
   transition: opacity 0.8s ease-out;
+  align-items: center;
+  margin-top: 20vh;
 }
 
 .fade-in {
   opacity: 1;
 }
+
 
 
 
