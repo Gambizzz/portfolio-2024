@@ -16,8 +16,16 @@
 
 .aboutTitle {
   font-family: 'Title', sans-serif;
-  font-size: 3rem;
+  font-size: 5rem;
   color: $nav-title-color;
+  margin-bottom: -2rem;
+}
+
+.aboutLine {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.5rem;
+  text-align: center;
+  color: $text-color;
 }
 
 .section {

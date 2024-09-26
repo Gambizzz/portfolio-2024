@@ -42,8 +42,9 @@ const About = () => {
 
   return (
     <section id="about" className={styles.about}>
-      <div className={styles.aboutTitle}>
-        <h1>{t('About_title')}</h1>
+      <div>
+        <h1 className={styles.aboutTitle}>{t('about_title')}</h1>
+        <p className={styles.aboutLine}>{t('about_line')}</p>
       </div>
       {sections.map((section, index) => (
         <div
@@ -52,7 +53,10 @@ const About = () => {
         >
           <div className={styles.sectionNumber}>{section.number}</div>
           <div className={styles.sectionContent}>
-            <p className={styles.sectionText}>{section.text}</p>
+            <p
+              className={styles.sectionText}
+              dangerouslySetInnerHTML={{ __html: section.text }}
+            />
           </div>
           {index < sections.length - 1 && <hr className={styles.separator} />}
         </div>
@@ -74,6 +78,7 @@ const About = () => {
 };
 
 export default About;
+
 
 
 
