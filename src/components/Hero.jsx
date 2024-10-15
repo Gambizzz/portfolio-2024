@@ -5,7 +5,7 @@ const Hero = () => {
   return (
     <section className={styles.hero}>
       <div className={styles.heroContent}>
-        <p>Welcome, I am</p>
+        <p className={styles.welcome}>Welcome, I am</p>
       </div>
       <div className={styles.heroImageWrapper}>
         <img src="images/logo-name.png" alt="Hero Banner" className={styles.heroImage} />

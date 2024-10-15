@@ -62,13 +62,21 @@
 /* responsive */
 @media (max-width: 768px) {
   .heroImageWrapper {
-    margin-top: 15%;
+    margin-top: 12%;
+  }
+
+  .welcome {
+    margin-bottom: -40%;
   }
 }
 
 @media (max-width: 480px) {
   .heroImageWrapper {
-    margin-top: 30%;
+    margin-top: 25%;
+  }
+
+  .welcome {
+    margin-bottom: -40%;
   }
 }
 
