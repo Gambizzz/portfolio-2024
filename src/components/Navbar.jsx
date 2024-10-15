@@ -6,6 +6,7 @@ const Navbar = () => {
   const [isNavbarVisible, setIsNavbarVisible] = useState(true);
   const [isButtonVisible, setIsButtonVisible] = useState(false);
   const [lastScrollTop, setLastScrollTop] = useState(0);
+  const [isBackgroundVisible, setIsBackgroundVisible] = useState(false); // New state
   const { t, i18n } = useTranslation();
   const [language, setLanguage] = useState(i18n.language);
 
@@ -20,6 +21,7 @@ const Navbar = () => {
         if (scrollTop <= 0) {
           setIsNavbarVisible(true);
           setIsButtonVisible(false);
+          setIsBackgroundVisible(false); // Reset background to transparent at the top
         }
       }
 
@@ -37,21 +39,22 @@ const Navbar = () => {
   };
 
   const handleButtonClick = () => {
-    if (isNavbarVisible) {
-      setIsNavbarVisible(false);
-    } else {
-      setIsNavbarVisible(true);
+    setIsNavbarVisible(!isNavbarVisible);
+    if (!isNavbarVisible) {
+      setIsBackgroundVisible(true); // Show background when navbar appears
     }
   };
 
   return (
     <div>
-      <nav className={`${styles.navbar} ${!isNavbarVisible ? styles.hidden : ''}`}>
+      <nav
+        className={`${styles.navbar} ${!isNavbarVisible ? styles.hidden : ''} ${isBackgroundVisible ? styles.background : ''}`}
+      >
         <ul>
           <li><a href="#hero">{t('Home')}</a></li>
           <li><a href="#about">{t('About')}</a></li>
           <li className={styles.logo}>
-            <img src="/images/logo-name.png" alt="Name logo" className={styles.icon} />
+            <img src="/images/initials.png" alt="Name logo" className={styles.icon} />
           </li>
           <li><a href="#projects">{t('Projects')}</a></li>
           <li>
@@ -62,12 +65,16 @@ const Navbar = () => {
         </ul>
       </nav>
 
-      <button className={`${styles.showNavbarButton} ${isButtonVisible ? styles.visible : ''}`} onClick={handleButtonClick}></button>
+      <button
+        className={`${styles.showNavbarButton} ${isButtonVisible ? styles.visible : ''}`}
+        onClick={handleButtonClick}
+      ></button>
     </div>
   );
 };
 
 export default Navbar;
+
 
 
 
