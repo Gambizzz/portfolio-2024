@@ -6,7 +6,7 @@ const Navbar = () => {
   const [isNavbarVisible, setIsNavbarVisible] = useState(true);
   const [isButtonVisible, setIsButtonVisible] = useState(false);
   const [lastScrollTop, setLastScrollTop] = useState(0);
-  const [isBackgroundVisible, setIsBackgroundVisible] = useState(false); // New state
+  const [isBackgroundVisible, setIsBackgroundVisible] = useState(false);
   const { t, i18n } = useTranslation();
   const [language, setLanguage] = useState(i18n.language);
 
@@ -21,7 +21,7 @@ const Navbar = () => {
         if (scrollTop <= 0) {
           setIsNavbarVisible(true);
           setIsButtonVisible(false);
-          setIsBackgroundVisible(false); // Reset background to transparent at the top
+          setIsBackgroundVisible(false);
         }
       }
 
@@ -41,7 +41,7 @@ const Navbar = () => {
   const handleButtonClick = () => {
     setIsNavbarVisible(!isNavbarVisible);
     if (!isNavbarVisible) {
-      setIsBackgroundVisible(true); // Show background when navbar appears
+      setIsBackgroundVisible(true);
     }
   };
 
@@ -68,12 +68,17 @@ const Navbar = () => {
       <button
         className={`${styles.showNavbarButton} ${isButtonVisible ? styles.visible : ''}`}
         onClick={handleButtonClick}
-      ></button>
+      >
+        <span className={styles.buttonText}>
+          {isNavbarVisible ? 'Hide' : 'Show'}
+        </span>
+      </button>
     </div>
   );
 };
 
 export default Navbar;
+
 
 
 

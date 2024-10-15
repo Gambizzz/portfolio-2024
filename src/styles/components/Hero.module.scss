@@ -6,10 +6,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 50px;
   text-align: center;
   font-family: 'Raleway', sans-serif;
-  margin-top: 30vh; /* Ajout d'un léger espacement après la navbar */
+  margin-top: 35vh;
 
   .heroImageWrapper {
     display: flex;
@@ -19,29 +18,57 @@
 
     .heroImage {
       width: 80%;
-      max-width: 1000px;
       height: auto;
-      object-fit: contain;
       margin-bottom: 20px;
     }
   }
 
   .heroContent {
     p {
+      color: $text-color;
       font-size: 1.5rem;
+      font-weight: bold;
     }
   }
+}
 
-  @media (max-width: 768px) {
-    .heroImage {
-      width: 70%;
-    }
+.heroImageWrapper .heroImage {
+  position: relative;
+  transition: none;
+  animation: glitch 1s infinite;
+}
+
+@keyframes glitch {
+  0% {
+    clip: rect(100px, 9999px, 100px, 0);
+    transform: skew(0.5deg);
   }
+  20% {
+    clip: rect(50px, 9999px, 80px, 0);
+    transform: skew(1deg);
+  }
+  40% {
+    clip: rect(10px, 9999px, 70px, 0);
+    transform: skew(-0.5deg);
+  }
+  60% {
+    clip: rect(90px, 9999px, 20px, 0);
+    transform: skew(0.2deg);
+  }
+}
 
-  @media (max-width: 480px) {
-    .heroImage {
-      width: 90%;
-    }
+
+
+/* responsive */
+@media (max-width: 768px) {
+  .heroImageWrapper {
+    margin-top: 15%;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroImageWrapper {
+    margin-top: 30%;
   }
 }
 
