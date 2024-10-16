@@ -248,7 +248,9 @@
   background: $nav-bg-color;
   border-radius: 10px;
   padding: 20px;
-  max-width: 500px;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
   text-align: center;
   position: relative;
 
@@ -257,6 +259,12 @@
     color: $nav-title-color;
     font-size: 2.5rem;
     margin-top: 0.5rem;
+  }
+
+  p {
+    color: $text-color;
+    text-align: justify;
+    line-height: 1.6;
   }
 }
 
@@ -271,6 +279,33 @@
 
   &:hover {
     background-color: #d32f2f;
+  }
+}
+
+.additionalImages {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 20px;
+
+  .additionalImageCard {
+    width: calc(50% - 10px); // 2 cards per row with spacing
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    position: relative;
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5); // semi-transparent overlay
+      border-radius: 10px; // Rounded corners for overlay
+    }
   }
 }
 

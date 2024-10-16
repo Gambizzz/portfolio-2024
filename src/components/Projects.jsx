@@ -10,19 +10,19 @@ const Projects = () => {
 
   const projects = {
     'front-end': [
-      { id: 1, name: 'Omiage', image: '/images/projects/omiage.png', description: 'Description du projet Omiage' },
-      { id: 2, name: 'Ubstar', image: '/images/projects/ubstar.png', description: 'Description du projet Ubstar' },
-      { id: 3, name: 'Landing Page - Portfolio', image: '/images/projects/portfolio.png', description: 'Description du projet Landing Page' },
-      { id: 4, name: 'The Surfing Project', image: '/images/projects/surfing.png', description: 'Description du projet Surfing' },
+      { id: 1, name: 'Omiage', image: '/images/projects/omiage.png', description: 'project_omiage', additionalImages: ['/images/projects/omiage1.png', '/images/projects/omiage2.png'] },
+      { id: 2, name: 'Ubstar', image: '/images/projects/ubstar.png', description: 'project_ubstar', additionalImages: ['/images/projects/ubstar1.png'] },
+      { id: 3, name: 'Landing Page - Portfolio', image: '/images/projects/portfolio.png', description: 'project_portfolio', additionalImages: [] },
+      { id: 4, name: 'The Surfing Project', image: '/images/projects/surfing.png', description: 'project_surfing', additionalImages: ['/images/projects/surfing1.png', '/images/projects/surfing2.png'] },
     ],
     'fullstack': [
-      { id: 5, name: 'Menu', image: '/images/projects/menu.png', description: 'Description du projet Menu' },
-      { id: 6, name: 'Chapatte', image: '/images/projects/chapatte.png', description: 'Description du projet Chapatte' },
-      { id: 7, name: 'Drumkit', image: '/images/projects/drumkit.png', description: 'Description du projet Drumkit' },
-      { id: 8, name: 'Film List', image: '/images/projects/filmlist.png', description: 'Description du projet Film List' },
+      { id: 5, name: 'Menu', image: '/images/projects/menu.png', description: 'project_menu', additionalImages: ['/images/projects/menu1.png'] },
+      { id: 6, name: 'Chapatte', image: '/images/projects/chapatte.png', description: 'project_chapatte', additionalImages: [] },
+      { id: 7, name: 'Drumkit', image: '/images/projects/drumkit.png', description: 'project_drumkit', additionalImages: [] },
+      { id: 8, name: 'Film List', image: '/images/projects/filmlist.png', description: 'project_filmlist', additionalImages: [] },
     ],
     'design': [
-      { id: 9, name: 'Maxime Vincenti', image: '/images/projects/corde.png', description: 'Description du projet Maxime Vincenti' },
+      { id: 9, name: 'Maxime Vincenti', image: '/images/projects/corde.png', description: 'project_maxime_vincenti', additionalImages: ['/images/projects/recto.png', '/images/projects/verso.png'] },
     ],
   };
 
@@ -98,8 +98,17 @@ const Projects = () => {
         <div className={styles.popupOverlay}>
           <div className={styles.popupContent}>
             <h2>{selectedProject.name}</h2>
-            <img src={selectedProject.image} alt={selectedProject.name} />
-            <p>{selectedProject.description}</p>
+            <p>{t(selectedProject.description)}</p>
+            
+            {/* Section for additional images */}
+            <div className={styles.additionalImages}>
+              {selectedProject.additionalImages.map((image, index) => (
+                <div key={index} className={styles.additionalImageCard} style={{ backgroundImage: `url(${image})` }}>
+                  <div className={styles.overlay}></div>
+                </div>
+              ))}
+            </div>
+            
             <button onClick={closePopup} className={styles.closeButton}>
               Fermer
             </button>
@@ -111,6 +120,7 @@ const Projects = () => {
 };
 
 export default Projects;
+
 
 
 
