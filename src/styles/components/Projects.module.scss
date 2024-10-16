@@ -32,7 +32,7 @@
 
 .buttonsContainer {
   display: flex;
-  margin: 2rem;
+  margin-left: 3.8rem;
 
   button {
     font-size: 1rem;
@@ -68,6 +68,7 @@
   @media (max-width: 1000px) {
     justify-content: center;
     align-items: center;
+    margin-left: 0.8rem;
   }
 }
 
@@ -95,6 +96,7 @@
 
 .projectsRow {
   display: flex;
+  padding: 2%;
   gap: 50px;
 
   @media (max-width: 480px) {
@@ -106,13 +108,13 @@
   }
 }
 
-.card {
+.bigCard {
   position: relative;
-  width: 350px;
+  width: 370px;
   height: 250px;
-  background-size: cover;
-  background-position: center;
+  background: radial-gradient(circle, rgba(254, 88, 62, 0.723), rgba(255, 98, 174, 0.322));
   border-radius: 20px;
+  border: 1px solid $nav-title-color;
   display: flex;
   padding: 10px 30px;
   flex-direction: column;
@@ -120,6 +122,50 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  box-shadow: inset -10px -10px 15px rgba(249, 208, 253, 0.301), 
+              inset 10px 10px 20px rgba(255, 225, 251, 0.586), 
+              0 5px 15px rgba(227, 63, 26, 0.524);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    .buttonSvg {
+      opacity: 1;
+    }
+  }
+
+  @media (max-width: 1000px) {
+    width: 270px;
+    height: 220px;
+  }
+}
+
+.bigCard:hover {
+  transform: scale(1.05);
+  box-shadow: inset -15px -15px 20px rgba(249, 208, 253, 0.401), 
+              inset 10px 15px 25px rgba(255, 225, 251, 0.686), 
+              0 5px 10px rgba(227, 63, 26, 0.724);
+  background: radial-gradient(circle, rgba(254, 128, 62, 0.723), rgba(255, 148, 174, 0.322));
+}
+
+.littleCard {
+  position: relative;
+  width: 350px;
+  height: 250px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  border: 1px solid $nav-title-color;
+  display: flex;
+  padding: 10px 30px;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  @media (max-width: 1000px) {
+    width: 250px;
+  }
 }
 
 .overlay {
@@ -134,34 +180,9 @@
   pointer-events: none;
 }
 
-.card:hover .overlay {
+.littleCard:hover .overlay {
   opacity: 1;
   pointer-events: auto;
-}
-
-.cardBtn {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  font-weight: 600;
-  padding: 10px 20px;
-  font-size: 16px;
-  transform: translate(-50%, -50%) scale(0);
-  background-color: #ffffff;
-  border-radius: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  z-index: 999;
-  border: none;
-  opacity: 0;
-  transition: opacity 0.3s ease, transform 0.6s ease;
-}
-
-.card:hover .cardBtn {
-  opacity: 1;
-  transform: translate(-50%, -50%) scale(1);
 }
 
 .overlay::after {
@@ -176,8 +197,32 @@
   transition: transform 0.5s ease;
 }
 
-.card:hover .overlay::after {
+.littleCard:hover .overlay::after {
   transform: translate(-50%, -50%) scale(2);
 }
+
+
+.buttonSvg {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(0deg);
+  opacity: 0;
+  transition: opacity 0.3s;
+  animation: spin 5s linear infinite;
+  cursor: none;
+}
+
+@keyframes spin {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
 
 

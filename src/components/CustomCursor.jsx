@@ -11,13 +11,25 @@ const CustomCursor = () => {
     };
 
     const handleMouseOver = (e) => {
-      if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.tagName === 'SPAN' || e.target.closest('svg')) {
+      if (
+        e.target.tagName === 'A' ||
+        e.target.tagName === 'BUTTON' ||
+        e.target.tagName === 'SPAN' ||
+        e.target.closest('svg') ||
+        e.target.tagName === 'IMG'
+      ) {
         setIsHovering(true);
       }
     };
 
     const handleMouseOut = (e) => {
-      if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.tagName === 'SPAN' || e.target.closest('svg')) {
+      if (
+        e.target.tagName === 'A' ||
+        e.target.tagName === 'BUTTON' ||
+        e.target.tagName === 'SPAN' ||
+        e.target.closest('svg') ||
+        e.target.tagName === 'IMG'
+      ) {
         setIsHovering(false);
       }
     };
@@ -42,5 +54,6 @@ const CustomCursor = () => {
 };
 
 export default CustomCursor;
+
 
 
