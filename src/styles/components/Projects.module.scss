@@ -1,5 +1,10 @@
 @import '../../styles/variables.scss';
 
+@font-face {
+  font-family: 'Title';
+  src: url('/fonts/Nectarine DEMO.ttf') format('truetype');
+}
+
 .projects {
   font-family: 'Raleway', sans-serif;
   width: 100%;
@@ -223,6 +228,52 @@
     transform: translate(-50%, -50%) rotate(360deg);
   }
 }
+
+
+/* POP-UP */
+.popupOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.614);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.popupContent {
+  background: $nav-bg-color;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 500px;
+  text-align: center;
+  position: relative;
+
+  h2 {
+    font-family: 'Title', sans-serif;
+    color: $nav-title-color;
+    font-size: 2.5rem;
+    margin-top: 0.5rem;
+  }
+}
+
+.closeButton {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #d32f2f;
+  }
+}
+
 
 
 
