@@ -10,19 +10,19 @@ const Projects = () => {
 
   const projects = {
     'front-end': [
-      { id: 1, name: 'Omiage', image: '/images/projects/omiage.png', description: 'project_omiage', additionalImages: ['/images/projects/omiage1.png', '/images/projects/omiage2.png'] },
-      { id: 2, name: 'Ubstar', image: '/images/projects/ubstar.png', description: 'project_ubstar', additionalImages: ['/images/projects/ubstar1.png'] },
-      { id: 3, name: 'Landing Page - Portfolio', image: '/images/projects/portfolio.png', description: 'project_portfolio', additionalImages: [] },
-      { id: 4, name: 'The Surfing Project', image: '/images/projects/surfing.png', description: 'project_surfing', additionalImages: ['/images/projects/surfing1.png', '/images/projects/surfing2.png'] },
+      { id: 1, name: 'Omiage', image: '/images/projects/omiage.png', description: 'project_omiage', additionalImages: ['/images/projects/omiage1.png', '/images/projects/omiage2.png'], mockupImages: ['/images/projects/mu1.png'], video: '/videos/omiage.mp4' },
+      { id: 2, name: 'Ubstar', image: '/images/projects/ubstar.png', description: 'project_ubstar', additionalImages: ['/images/projects/ubstar1.png', '/images/projects/ubstar2.png', '/images/projects/ubstar3.png', '/images/projects/ubstar4.png'], mockupImages: ['/images/projects/mu-ubstar1.png', '/images/projects/mu-ubstar2.png', '/images/projects/mu-ubstar3.png'], video: '/videos/ubstar.mp4' },
+      { id: 3, name: 'Landing Page - Portfolio', image: '/images/projects/portfolio.png', description: 'project_portfolio', additionalImages: ['/images/projects/portfolio1.png', '/images/projects/portfolio2.png', '/images/projects/portfolio3.png', '/images/projects/portfolio4.png'], video: '/videos/portfolio.mp4' },
+      { id: 4, name: 'The Surfing Project', image: '/images/projects/surfing.png', description: 'project_surfing', additionalImages: ['/images/projects/surfing1.png', '/images/projects/surfing2.png', '/images/projects/surfing3.png', '/images/projects/surfing4.png'], mockupImages: ['/images/projects/mu-surfing1.png', '/images/projects/mu-surfing2.png', '/images/projects/mu-surfing3.png'], video: '/videos/surfing.mp4' },
     ],
     'fullstack': [
-      { id: 5, name: 'Menu', image: '/images/projects/menu.png', description: 'project_menu', additionalImages: ['/images/projects/menu1.png'] },
+      { id: 5, name: 'Menu', image: '/images/projects/menu.png', description: 'project_menu', additionalImages: ['/images/projects/menu1.png'], video: '/videos/menu.mp4' },
       { id: 6, name: 'Chapatte', image: '/images/projects/chapatte.png', description: 'project_chapatte', additionalImages: [] },
       { id: 7, name: 'Drumkit', image: '/images/projects/drumkit.png', description: 'project_drumkit', additionalImages: [] },
       { id: 8, name: 'Film List', image: '/images/projects/filmlist.png', description: 'project_filmlist', additionalImages: [] },
     ],
     'design': [
-      { id: 9, name: 'Maxime Vincenti', image: '/images/projects/corde.png', description: 'project_maxime_vincenti', additionalImages: ['/images/projects/recto.png', '/images/projects/verso.png'] },
+      { id: 9, name: 'Maxime Vincenti', image: '/images/projects/corde.png', description: 'project_maxime_vincenti', additionalImages: ['/images/projects/recto.png', '/images/projects/verso.png'], video: '/videos/maxime_vincenti.mp4' },
     ],
   };
 
@@ -97,10 +97,12 @@ const Projects = () => {
       {isPopupOpen && selectedProject && (
         <div className={styles.popupOverlay}>
           <div className={styles.popupContent}>
-            <h2>{selectedProject.name}</h2>
+            <h1>{selectedProject.name}</h1>
+
+            <h2>Description du projet</h2>
             <p>{t(selectedProject.description)}</p>
-            
-            {/* Section for additional images */}
+
+            <h2>Visuels</h2>
             <div className={styles.additionalImages}>
               {selectedProject.additionalImages.map((image, index) => (
                 <div key={index} className={styles.additionalImageCard} style={{ backgroundImage: `url(${image})` }}>
@@ -108,10 +110,54 @@ const Projects = () => {
                 </div>
               ))}
             </div>
-            
-            <button onClick={closePopup} className={styles.closeButton}>
-              Fermer
-            </button>
+
+            <h2>Mockups</h2>
+            <div className={styles.mockups}>
+              {selectedProject.mockupImages && selectedProject.mockupImages.length > 0 ? (
+                <>
+                  <div className={styles.mockupRow}>
+                    {selectedProject.mockupImages.slice(0, 2).map((mockup, index) => (
+                      <div
+                        key={index}
+                        className={styles.mockupImage}
+                        style={{ backgroundImage: `url(${mockup})` }}
+                      ></div>
+                    ))}
+                  </div>
+                  {selectedProject.mockupImages.length > 2 && (
+                    <div className={styles.mockupCentered}>
+                      <div
+                        className={styles.mockupImage}
+                        style={{ backgroundImage: `url(${selectedProject.mockupImages[2]})` }}
+                      ></div>
+                    </div>
+                  )}
+                </>
+              ) : (
+                <p>Aucun mockup disponible</p>
+              )}
+            </div>
+
+
+            <h2>Vidéo</h2>
+            {selectedProject.video ? (
+              <video className={styles.videoPlayer} controls>
+                <source src={selectedProject.video} type="video/mp4" />
+                Votre navigateur ne supporte pas la balise vidéo.
+              </video>
+            ) : (
+              <p>Aucune vidéo disponible pour ce projet.</p>
+            )}
+
+      <div className={styles.closePopupContainer} onClick={closePopup}>
+              <div className="container">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div className="cross"></div>
+            </div>
           </div>
         </div>
       )}
@@ -120,6 +166,7 @@ const Projects = () => {
 };
 
 export default Projects;
+
 
 
 

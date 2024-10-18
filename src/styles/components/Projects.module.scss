@@ -248,13 +248,13 @@
   background: $nav-bg-color;
   border-radius: 10px;
   padding: 20px;
-  max-width: 600px;
+  max-width: 800px;
   max-height: 90vh;
   overflow-y: auto;
   text-align: center;
   position: relative;
 
-  h2 {
+  h1 {
     font-family: 'Title', sans-serif;
     color: $nav-title-color;
     font-size: 2.5rem;
@@ -265,20 +265,7 @@
     color: $text-color;
     text-align: justify;
     line-height: 1.6;
-  }
-}
-
-.closeButton {
-  background-color: #f44336;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 15px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-
-  &:hover {
-    background-color: #d32f2f;
+    margin-top: 3rem;
   }
 }
 
@@ -286,15 +273,15 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin-top: 20px;
+  margin-top: 3rem;
 
   .additionalImageCard {
-    width: calc(50% - 10px); // 2 cards per row with spacing
-    height: 200px;
+    width: calc(50% - 10px);
+    height: 250px;
     background-size: cover;
     background-position: center;
     border-radius: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
     position: relative;
 
     .overlay {
@@ -303,11 +290,163 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: rgba(0, 0, 0, 0.5); // semi-transparent overlay
-      border-radius: 10px; // Rounded corners for overlay
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 10px;
     }
   }
 }
+
+.mockups {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 3rem;
+
+  .mockupRow {
+    display: flex;
+    justify-content: space-evenly;
+
+    .mockupImage {
+      width: calc(25% - 0px);
+      height: 350px;
+      background-size: cover;
+      background-position: center;
+      border-radius: 10px;
+    }
+  }
+
+  .mockupCentered {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+
+    .mockupImage {
+      width: 50%;
+      height: 300px;
+      background-size: cover;
+      background-position: center;
+      border-radius: 10px;
+    }
+  }
+}
+
+.videoPlayer {
+  width: 100%;
+  max-height: 350px;
+  border-radius: 10px;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+
+  @media (max-width: 768px) {
+    max-height: 300px;
+  }
+}
+
+
+/* Nouveau bouton de fermeture avec une animation */
+.closePopupContainer {
+  position: absolute;
+  top: 20px; /* Ajuster selon les besoins */
+  right: 20px; /* Ajuster selon les besoins */
+  width: 100px;
+  height: 100px;
+  z-index: 10; /* Pour s'assurer que la croix reste au-dessus */
+  cursor: pointer;
+}
+
+.closePopupContainer .container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+  animation: rotate_3922 1.2s linear infinite;
+  background-color: #9b59b6;
+  background-image: linear-gradient(#9b59b6, #84cdfa, #5ad1cd);
+  transform: translate(-50%, -50%);
+}
+
+.closePopupContainer .container span {
+  position: absolute;
+  border-radius: 50%;
+  height: 100%;
+  width: 100%;
+  background-color: #9b59b6;
+  background-image: linear-gradient(#9b59b6, #84cdfa, #5ad1cd);
+}
+
+.closePopupContainer .container span:nth-of-type(1) {
+  filter: blur(5px);
+}
+
+.closePopupContainer .container span:nth-of-type(2) {
+  filter: blur(10px);
+}
+
+.closePopupContainer .container span:nth-of-type(3) {
+  filter: blur(25px);
+}
+
+.closePopupContainer .container span:nth-of-type(4) {
+  filter: blur(50px);
+}
+
+/* Cercle blanc au centre */
+.closePopupContainer .container::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  background-color: #fff;
+  border: solid 2px #ffffff;
+  border-radius: 50%;
+}
+
+/* Crois fixe par-dessus le cercle blanc, en forme de X */
+.closePopupContainer .cross {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  z-index: 1;
+}
+
+.closePopupContainer .cross::before,
+.closePopupContainer .cross::after {
+  content: '';
+  position: absolute;
+  background-color: black;
+}
+
+.closePopupContainer .cross::before {
+  width: 30px;
+  height: 6px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.closePopupContainer .cross::after {
+  width: 30px;
+  height: 6px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Animation rotation */
+@keyframes rotate_3922 {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
 
 
 
