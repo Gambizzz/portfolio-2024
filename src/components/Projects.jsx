@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { RxCross1 } from "react-icons/rx";
 import styles from '../styles/components/Projects.module.scss';
 
 const Projects = () => {
@@ -10,19 +11,19 @@ const Projects = () => {
 
   const projects = {
     'front-end': [
-      { id: 1, name: 'Omiage', image: '/images/projects/omiage.png', description: 'project_omiage', additionalImages: ['/images/projects/omiage1.png', '/images/projects/omiage2.png'], mockupImages: ['/images/projects/mu1.png'], video: '/videos/omiage.mp4' },
+      { id: 1, name: 'Omiage', image: '/images/projects/omiage.png', description: 'project_omiage', additionalImages: ['/images/projects/omiage1.png', '/images/projects/omiage2.png', '/images/projects/omiage3.png', '/images/projects/omiage4.png', '/images/projects/omiage5.png', '/images/projects/omiage6.png'], mockupImages: ['/images/projects/mu-omiage1.png', '/images/projects/mu-omiage2.png', '/images/projects/mu-omiage3.png'], video: '/videos/omiage.mp4' },
       { id: 2, name: 'Ubstar', image: '/images/projects/ubstar.png', description: 'project_ubstar', additionalImages: ['/images/projects/ubstar1.png', '/images/projects/ubstar2.png', '/images/projects/ubstar3.png', '/images/projects/ubstar4.png'], mockupImages: ['/images/projects/mu-ubstar1.png', '/images/projects/mu-ubstar2.png', '/images/projects/mu-ubstar3.png'], video: '/videos/ubstar.mp4' },
       { id: 3, name: 'Landing Page - Portfolio', image: '/images/projects/portfolio.png', description: 'project_portfolio', additionalImages: ['/images/projects/portfolio1.png', '/images/projects/portfolio2.png', '/images/projects/portfolio3.png', '/images/projects/portfolio4.png'], video: '/videos/portfolio.mp4' },
       { id: 4, name: 'The Surfing Project', image: '/images/projects/surfing.png', description: 'project_surfing', additionalImages: ['/images/projects/surfing1.png', '/images/projects/surfing2.png', '/images/projects/surfing3.png', '/images/projects/surfing4.png'], mockupImages: ['/images/projects/mu-surfing1.png', '/images/projects/mu-surfing2.png', '/images/projects/mu-surfing3.png'], video: '/videos/surfing.mp4' },
     ],
     'fullstack': [
-      { id: 5, name: 'Menu', image: '/images/projects/menu.png', description: 'project_menu', additionalImages: ['/images/projects/menu1.png'], video: '/videos/menu.mp4' },
-      { id: 6, name: 'Chapatte', image: '/images/projects/chapatte.png', description: 'project_chapatte', additionalImages: [] },
-      { id: 7, name: 'Drumkit', image: '/images/projects/drumkit.png', description: 'project_drumkit', additionalImages: [] },
-      { id: 8, name: 'Film List', image: '/images/projects/filmlist.png', description: 'project_filmlist', additionalImages: [] },
+      { id: 5, name: 'Menu', image: '/images/projects/menu.png', description: 'project_menu', additionalImages: ['/images/projects/menu1.png', '/images/projects/menu2.png', '/images/projects/menu3.png', '/images/projects/menu4.png', '/images/projects/menu5.png'], mockupImages: ['/images/projects/mu-menu1.png', '/images/projects/mu-menu2.png', '/images/projects/mu-menu3.png'], video: ['/videos/menu.mp4', '/videos/menu1.mp4'] },
+      { id: 6, name: 'Chapatte', image: '/images/projects/chapatte.png', description: 'project_chapatte', additionalImages: ['/images/projects/chapatte1.png', '/images/projects/chapatte2.png', '/images/projects/chapatte3.png', '/images/projects/chapatte4.png'], mockupImages: ['/images/projects/mu-chat1.png', '/images/projects/mu-chat2.png', '/images/projects/mu-chat3.png'], video: '/videos/chapatte.mp4' },
+      { id: 7, name: 'Drumkit', image: '/images/projects/drumkit.png', description: 'project_drumkit', additionalImages: ['/images/projects/drumkit1.png'], mockupImages: ['/images/projects/mu-drum1.png', '/images/projects/mu-drum2.png', '/images/projects/mu-drum3.png'], video: '/videos/drumkit.mp4' },
+      { id: 8, name: 'Film List', image: '/images/projects/filmlist.png', description: 'project_filmlist', additionalImages: ['/images/projects/filmlist1.png', '/images/projects/filmlist2.png', '/images/projects/filmlist3.png'], mockupImages: ['/images/projects/mu-film1.png', '/images/projects/mu-film2.png', '/images/projects/mu-film3.png'], video: '/videos/filmlist.mp4' },
     ],
     'design': [
-      { id: 9, name: 'Maxime Vincenti', image: '/images/projects/corde.png', description: 'project_maxime_vincenti', additionalImages: ['/images/projects/recto.png', '/images/projects/verso.png'], video: '/videos/maxime_vincenti.mp4' },
+      { id: 9, name: 'Maxime Vincenti', image: '/images/projects/corde.png', description: 'project_maxime_vincenti', additionalImages: ['/images/projects/recto.png', '/images/projects/verso.png']},
     ],
   };
 
@@ -134,29 +135,36 @@ const Projects = () => {
                   )}
                 </>
               ) : (
-                <p>Aucun mockup disponible</p>
+                <p>Aucun mockup disponible pour ce projet.</p>
               )}
             </div>
 
 
             <h2>Vidéo</h2>
             {selectedProject.video ? (
-              <video className={styles.videoPlayer} controls>
-                <source src={selectedProject.video} type="video/mp4" />
-                Votre navigateur ne supporte pas la balise vidéo.
-              </video>
+              typeof selectedProject.video === 'string' ? (
+                // show one video only
+                <video className={styles.videoPlayer} controls>
+                  <source src={selectedProject.video} type="video/mp4" />
+                  Votre navigateur ne supporte pas la balise vidéo.
+                </video>
+              ) : (
+                // show many videos
+                selectedProject.video.map((videoSrc, index) => (
+                  <video key={index} className={styles.videoPlayer} controls>
+                    <source src={videoSrc} type="video/mp4" />
+                    Votre navigateur ne supporte pas la balise vidéo.
+                  </video>
+                ))
+              )
             ) : (
               <p>Aucune vidéo disponible pour ce projet.</p>
             )}
 
-      <div className={styles.closePopupContainer} onClick={closePopup}>
-              <div className="container">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-              <div className="cross"></div>
+            <div className={styles.closePopup} onClick={closePopup}>
+              <button>
+                <RxCross1 />
+              </button>
             </div>
           </div>
         </div>
