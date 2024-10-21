@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { RxCross1 } from "react-icons/rx";
+import { FaGithub, FaFigma } from 'react-icons/fa';
 import styles from '../styles/components/Projects.module.scss';
 
 const Projects = () => {
@@ -8,6 +9,7 @@ const Projects = () => {
   const [selectedCategory, setSelectedCategory] = useState('front-end');
   const [selectedProject, setSelectedProject] = useState(null);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [hoveredLink, setHoveredLink] = useState(null);
 
   const projects = {
     'front-end': [
@@ -102,6 +104,24 @@ const Projects = () => {
 
             <h2>{t('projectDescript')}</h2>
             <p>{t(selectedProject.description)}</p>
+            <ul className={styles.socialLinks}>
+              <li
+                onMouseEnter={() => setHoveredLink('github')}
+                onMouseLeave={() => setHoveredLink(null)}
+              >
+                <a href="" target="_blank" rel="noopener noreferrer">
+                  <FaGithub />
+                </a>
+              </li>
+              <li
+                onMouseEnter={() => setHoveredLink('linkedin')}
+                onMouseLeave={() => setHoveredLink(null)}
+              >
+                <a href="" target="_blank" rel="noopener noreferrer">
+                  <FaFigma />
+                </a>
+              </li>
+            </ul>
 
             <h2>{t('projectVisu')}</h2>
             <div className={styles.additionalImages}>

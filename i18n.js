@@ -30,7 +30,7 @@ const resources = {
       project_filmlist: "Creation of a page that allows to display a list of films based on The Open Movie Database API. The user can search for films using a form, and the results are displayed in blocks including the film's poster, title, release date, and a 'Read More' button. The results are scrolled gradually using the Intersection Observer, with animations that reveal the films as they go. Clicking on 'Read More' brings up a popup with additional details about the film. The project emphasizes the use of APIs, asynchronism and the integration of a simple interface.",
       project_maxime_vincenti: "Creation of a visual identity for a professional rope access technician. The goal was to create business cards. The only constraints were the green color and the desire to have a refined result. The mockup was made on Canva.",
 
-      projectDescript: "Project's description",
+      projectDescript: "Project description",
       projectVisu: "Visuals",
       projectMu: "Mockups",
       noneMu: "No mockups available for this project.",
