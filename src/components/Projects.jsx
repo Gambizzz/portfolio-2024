@@ -100,10 +100,10 @@ const Projects = () => {
           <div className={styles.popupContent}>
             <h1>{selectedProject.name}</h1>
 
-            <h2>Description du projet</h2>
+            <h2>{t('projectDescript')}</h2>
             <p>{t(selectedProject.description)}</p>
 
-            <h2>Visuels</h2>
+            <h2>{t('projectVisu')}</h2>
             <div className={styles.additionalImages}>
               {selectedProject.additionalImages.map((image, index) => (
                 <div key={index} className={styles.additionalImageCard} style={{ backgroundImage: `url(${image})` }}>
@@ -112,7 +112,7 @@ const Projects = () => {
               ))}
             </div>
 
-            <h2>Mockups</h2>
+            <h2>{t('projectMu')}</h2>
             <div className={styles.mockups}>
               {selectedProject.mockupImages && selectedProject.mockupImages.length > 0 ? (
                 <>
@@ -135,30 +135,30 @@ const Projects = () => {
                   )}
                 </>
               ) : (
-                <p>Aucun mockup disponible pour ce projet.</p>
+                <p>{t('noneMu')}</p>
               )}
             </div>
 
 
-            <h2>Vidéo</h2>
+            <h2>{t('projectVid')}</h2>
             {selectedProject.video ? (
               typeof selectedProject.video === 'string' ? (
                 // show one video only
                 <video className={styles.videoPlayer} controls>
                   <source src={selectedProject.video} type="video/mp4" />
-                  Votre navigateur ne supporte pas la balise vidéo.
+                  {t('unsupportVid')}
                 </video>
               ) : (
                 // show many videos
                 selectedProject.video.map((videoSrc, index) => (
                   <video key={index} className={styles.videoPlayer} controls>
                     <source src={videoSrc} type="video/mp4" />
-                    Votre navigateur ne supporte pas la balise vidéo.
+                    {t('unsupportVid')}
                   </video>
                 ))
               )
             ) : (
-              <p>Aucune vidéo disponible pour ce projet.</p>
+              <p>{t('noneVid')}</p>
             )}
 
             <div className={styles.closePopup} onClick={closePopup}>

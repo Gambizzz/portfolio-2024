@@ -16,7 +16,8 @@ const CustomCursor = () => {
         e.target.tagName === 'BUTTON' ||
         e.target.tagName === 'SPAN' ||
         e.target.closest('svg') ||
-        e.target.tagName === 'IMG'
+        e.target.tagName === 'IMG' ||
+        e.target.tagName === 'VIDEO' 
       ) {
         setIsHovering(true);
       }
@@ -28,7 +29,8 @@ const CustomCursor = () => {
         e.target.tagName === 'BUTTON' ||
         e.target.tagName === 'SPAN' ||
         e.target.closest('svg') ||
-        e.target.tagName === 'IMG'
+        e.target.tagName === 'IMG' ||
+        e.target.tagName === 'VIDEO' 
       ) {
         setIsHovering(false);
       }
