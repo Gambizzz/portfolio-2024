@@ -177,6 +177,9 @@ const Projects = () => {
                       className={styles.buttonSvg}
                     />
                   </button>
+                  <div className={styles.projectTag}>
+                    {project.name}
+                  </div>
                 </div>
               </div>
             ))}

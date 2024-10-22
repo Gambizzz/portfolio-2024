@@ -87,17 +87,17 @@
   max-width: 100%;
   position: relative;
 
-  /* Scrollbar hidden styles */
+  /* Hide the scrollbar */
   &::-webkit-scrollbar {
     display: none;
   }
-
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 
   @media (max-width: 1000px) {
     justify-content: center;
     align-items: center;
+    animation: none;
   }
 }
 
@@ -121,12 +121,18 @@
 
   @media (max-width: 480px) {
     gap: 30px;
-    animation: none;
+
+    &.animate {
+      animation: none;
+    }
   }
 
   @media (max-width: 1000px) {
     flex-direction: column;
-    animation: none;
+
+    &.animate {
+      animation: none;
+    }
   }
 }
 
@@ -223,6 +229,17 @@
   transform: translate(-50%, -50%) scale(2);
 }
 
+.projectTag {
+  position: absolute;
+  bottom: 10px;
+  left: 14px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: $nav-bg-color;
+  font-weight: bold;
+  padding: 6px 10px;
+  font-size: 1rem;
+  border-radius: 15px;
+}
 
 .buttonSvg {
   position: absolute;
@@ -305,7 +322,7 @@
   justify-content: space-evenly;
 
   a {
-    color: $border-btn-active-color;
+    color: $nav-title-color;
     flex-direction: row;
     font-size: 3rem;
     text-decoration: none;
