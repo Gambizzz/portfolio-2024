@@ -79,11 +79,13 @@
 
 .projectsContainer {
   margin: 1.8rem;
+  overflow: hidden;
   overflow-x: scroll;
   white-space: nowrap;
   display: flex;
   flex-wrap: nowrap;
   max-width: 100%;
+  position: relative;
 
   /* Scrollbar hidden styles */
   &::-webkit-scrollbar {
@@ -99,17 +101,32 @@
   }
 }
 
+@keyframes scrollProjects {
+  0% {
+    transform: translateX(10);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
 .projectsRow {
   display: flex;
   padding: 2%;
   gap: 50px;
 
+  &.animate {
+    animation: scrollProjects 40s linear infinite;
+  }
+
   @media (max-width: 480px) {
     gap: 30px;
+    animation: none;
   }
 
   @media (max-width: 1000px) {
     flex-direction: column;
+    animation: none;
   }
 }
 
@@ -269,7 +286,7 @@
 
   h2 {
     color: $border-btn-active-color;
-    margin-top: 6rem;
+    margin-top: 5rem;
     margin-bottom: 4rem;
   }
 
@@ -277,7 +294,6 @@
     color: $text-color;
     text-align: justify;
     line-height: 1.6;
-    margin-top: 3rem;
   }
 }
 
@@ -289,6 +305,7 @@
   justify-content: space-evenly;
 
   a {
+    color: $border-btn-active-color;
     flex-direction: row;
     font-size: 3rem;
     text-decoration: none;
