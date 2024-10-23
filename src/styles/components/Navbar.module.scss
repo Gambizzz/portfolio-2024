@@ -6,6 +6,8 @@
   position: fixed;
   width: 100%;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 1000;
   font-family: "Raleway", sans-serif;
   transition: opacity 0.5s ease, transform 0.5s ease;
@@ -134,13 +136,19 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+  .navbar {
+    height: 50px; /* Réduction de la hauteur de la navbar */
+  }
+
   .navbar ul {
-    flex-direction: column;
-    align-items: justify;
+    flex-direction: row;
+    justify-content: space-around; /* Ajustement de l'alignement */
+    padding: 0;
   }
 
   .navbar ul li {
-    margin: 1rem 0;
+    margin: 0px -15%;
+    margin-left: -23%;
   }
 
   .navbar .logo {

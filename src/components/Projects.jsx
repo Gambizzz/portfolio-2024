@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { RxCross1 } from "react-icons/rx";
-import { FaGithub, FaFigma } from 'react-icons/fa';
 import styles from '../styles/components/Projects.module.scss';
+import Popup from './Popup';
 
 const Projects = () => {
   const { t } = useTranslation();
@@ -188,112 +187,12 @@ const Projects = () => {
       </div>
 
       {isPopupOpen && selectedProject && (
-        <div className={styles.popupOverlay}>
-          <div className={styles.popupContent}>
-            <h1>{selectedProject.name}</h1>
-
-            <h2>{t('projectDescript')}</h2>
-            <p>{t(selectedProject.description)}</p>
-            <ul className={styles.socialLinks}>
-              {Array.isArray(selectedProject.githubLink) ? (
-                selectedProject.githubLink.map((link, index) => (
-                  <li
-                    key={`github-link-${index}`}
-                    onMouseEnter={() => setHoveredLink('github')}
-                    onMouseLeave={() => setHoveredLink(null)}
-                  >
-                    <a href={link} target="_blank" rel="noopener noreferrer">
-                      <FaGithub />
-                    </a>
-                  </li>
-                ))
-              ) : (
-                selectedProject.githubLink && (
-                  <li
-                    onMouseEnter={() => setHoveredLink('github')}
-                    onMouseLeave={() => setHoveredLink(null)}
-                  >
-                    <a href={selectedProject.githubLink} target="_blank" rel="noopener noreferrer">
-                      <FaGithub />
-                    </a>
-                  </li>
-                )
-              )}
-
-              {selectedProject.figmaLink && (
-                <li
-                  onMouseEnter={() => setHoveredLink('figma')}
-                  onMouseLeave={() => setHoveredLink(null)}
-                >
-                  <a href={selectedProject.figmaLink} target="_blank" rel="noopener noreferrer">
-                    <FaFigma />
-                  </a>
-                </li>
-              )}
-            </ul>
-
-            <h2>{t('projectVisu')}</h2>
-            <div className={styles.additionalImages}>
-              {selectedProject.additionalImages.map((image, index) => (
-                <div key={index} className={styles.additionalImageCard} style={{ backgroundImage: `url(${image})` }}>
-                  <div className={styles.overlay}></div>
-                </div>
-              ))}
-            </div>
-
-            <h2>{t('projectMu')}</h2>
-            <div className={styles.mockups}>
-              {selectedProject.mockupImages && selectedProject.mockupImages.length > 0 ? (
-                <>
-                  <div className={styles.mockupRow}>
-                    {selectedProject.mockupImages.slice(0, 2).map((mockup, index) => (
-                      <div
-                        key={index}
-                        className={styles.mockupImage}
-                        style={{ backgroundImage: `url(${mockup})` }}
-                      ></div>
-                    ))}
-                  </div>
-                  {selectedProject.mockupImages.length > 2 && (
-                    <div className={styles.mockupCentered}>
-                      <div
-                        className={styles.mockupImage}
-                        style={{ backgroundImage: `url(${selectedProject.mockupImages[2]})` }}
-                      ></div>
-                    </div>
-                  )}
-                </>
-              ) : (
-                <p>{t('noneMu')}</p>
-              )}
-            </div>
-
-            <h2>{t('projectVid')}</h2>
-            {selectedProject.video ? (
-              typeof selectedProject.video === 'string' ? (
-                <video className={styles.videoPlayer} controls>
-                  <source src={selectedProject.video} type="video/mp4" />
-                  {t('unsupportVid')}
-                </video>
-              ) : (
-                selectedProject.video.map((videoSrc, index) => (
-                  <video key={index} className={styles.videoPlayer} controls>
-                    <source src={videoSrc} type="video/mp4" />
-                    {t('unsupportVid')}
-                  </video>
-                ))
-              )
-            ) : (
-              <p>{t('noneVid')}</p>
-            )}
-
-            <div className={styles.closePopup} onClick={closePopup}>
-              <button>
-                <RxCross1 />
-              </button>
-            </div>
-          </div>
-        </div>
+        <Popup
+          project={selectedProject}
+          closePopup={closePopup}
+          hoveredLink={hoveredLink}
+          setHoveredLink={setHoveredLink}
+        />
       )}
     </section>
   );
