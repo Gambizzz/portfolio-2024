@@ -20,6 +20,11 @@
   font-size: 5rem;
   color: $nav-title-color;
   margin-bottom: -2rem;
+
+  @media (max-width: 480px) {
+    font-size: 4rem;
+    text-align: center;
+  }
 }
 
 .aboutLine {
