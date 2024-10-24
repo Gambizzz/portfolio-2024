@@ -29,6 +29,19 @@
   color: $text-color;
 }
 
+.aboutMe {
+  text-align: center;
+  margin-top: 2rem;
+
+  img {
+    width: 20%;
+    margin-left: 0.6rem;
+    margin-right: 0.6rem;
+  }
+}
+
+
+/* SECTIONS */
 .section {
   display: flex;
   flex-direction: column;
@@ -69,6 +82,7 @@
   border-bottom: 0.5px solid $nav-title-color;
   margin: 2rem 0;
 }
+
 
 /* CV BUTTONS */
 .buttonContainer {

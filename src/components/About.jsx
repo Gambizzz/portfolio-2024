@@ -46,6 +46,11 @@ const About = () => {
         <h1 className={styles.aboutTitle}>{t('about_title')}</h1>
         <p className={styles.aboutLine}>{t('about_line')}</p>
       </div>
+
+    <div>
+      <p className={styles.aboutMe}> Je suis <img src='/images/logo-name.png'></img>, développeuse web fullstack </p>
+    </div>
+
       {sections.map((section, index) => (
         <div
           key={index}
