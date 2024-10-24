@@ -108,7 +108,8 @@ const Projects = () => {
         name: 'Maxime Vincenti',
         image: '/images/projects/corde.png',
         description: 'project_maxime_vincenti',
-        additionalImages: ['/images/projects/recto.png', '/images/projects/verso.png']
+        additionalImages: ['/images/projects/corde1.png', '/images/projects/corde2.png'],
+        mockupImages: ['/images/projects/mu-corde1.png', '/images/projects/mu-corde2.png']
       },
     ],
   };

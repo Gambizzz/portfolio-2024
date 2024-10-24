@@ -360,6 +360,36 @@
 
 
 
+/* MOCKUPS BRANDING */
+.popupContent.maximeVincenti .mockups .mockupRow .mockupImage {
+  width: calc(50% - 10px);
+  height: 350px;
+}
+
+@media (max-width: 900px) {
+  .popupContent.maximeVincenti .mockups .mockupRow .mockupImage {
+    width: calc(50% - 10px);
+    height: 300px; 
+  }
+}
+
+@media (max-width: 600px) {
+  .popupContent.maximeVincenti .mockups .mockupRow .mockupImage {
+    width: calc(100% - 10px);
+    height: 200px;
+  }
+}
+
+@media (max-width: 470px) {
+  .popupContent.maximeVincenti .mockups .mockupRow .mockupImage {
+    width: calc(100% - 10px);
+    height: 150px;
+  }
+}
+
+
+
+
 
 
 

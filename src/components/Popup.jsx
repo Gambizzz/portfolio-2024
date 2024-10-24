@@ -9,7 +9,8 @@ const Popup = ({ project, closePopup, hoveredLink, setHoveredLink }) => {
 
   return (
     <div className={styles.popupOverlay}>
-      <div className={styles.popupContent}>
+      <div className={`${styles.popupContent} ${project.name === 'Maxime Vincenti' ? styles.maximeVincenti : ''}`}>
+
         <h1>{project.name}</h1>
 
         <h2>{t('projectDescript')}</h2>
