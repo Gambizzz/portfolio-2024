@@ -70,4 +70,4 @@ Email: anelisegambini@yahoo.com
 
 LinkedIn: www.linkedin.com/in/anelisegambini
 
-Online Portfolio: https://portfolio-2024-dz7hpgadi-gambizzzs-projects.vercel.app/
+Online Portfolio: https://portfolio-2024-ivory-tau.vercel.app/
