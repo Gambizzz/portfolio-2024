@@ -37,7 +37,7 @@ Installation Steps :
 git clone https://github.com/Gambizzz/portfolio-2024.git
 
 # Navigate into the project directory
-cd your-portfolio
+cd portfolio-2024
 
 # With npm
 npm install
