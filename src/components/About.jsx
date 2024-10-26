@@ -44,7 +44,7 @@ const About = () => {
     <section id="about" className={styles.about}>
       <div>
         <h1 className={styles.aboutTitle}>{t('about_title')}</h1>
-        <p className={styles.aboutLine}>{t('about_line1')} <img src='/images/logo-name.png'></img> {t('about_line2')}</p>
+        <p className={styles.aboutLine}>{t('about_line1')} <img src='/images/logo-name.png' alt='Logo'></img> {t('about_line2')}</p>
       </div>
 
       {sections.map((section, index) => (

@@ -38,6 +38,18 @@
     width: 20%;
     margin-left: 0.6rem;
     margin-right: 0.6rem;
+
+    @media (max-width: 480px) {
+      width: 50%;
+    }
+
+    @media (max-width: 768px) {
+      width: 40%;
+    }
+
+    @media (max-width: 1024px) {
+      width: 30%;
+    }
   }
 }
 
