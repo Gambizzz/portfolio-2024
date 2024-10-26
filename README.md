@@ -1,22 +1,62 @@
-## Getting Started
+## My Portfolio - React.js + Next.js Application
 
-First, run the development server:
+Welcome to the repository of my portfolio, a single-page application (SPA) built with React.js and Next.js. This project showcases my projects, skills, and contact information on a seamless, user-friendly interface.
+
+## 🎯 Purpose
+The purpose of this application is to centralize and showcase my development projects while providing an appealing interface for visitors to learn more about me and my skills.
+
+## 🚀 Features
+Home Page : A custom design and smooth animation that enhance the user experience, both of which I created from scratch.
+About : An introduction to my profile, key skills, and a brief summary of my background and motivations.
+Projects : An animated section featuring all my projects, including descriptions, technologies used, and links to repositories or live demos.
+Contact : Three links integrated into the Footer, allowing visitors to reach out to me directly.
+Smooth Navigation : Leveraging Next.js routing for quick navigation across different sections of the application.
+
+## 📚 Technologies Used
+React.js : for building the user interface.
+Next.js : for server-side rendering (SSR) and static site generation (SSG).
+Sass : for modular and manageable styles.
+
+## 📦 Installation
+Prerequisites :
+- Node.js version 14 or later
+- npm or yarn
+
+Installation Steps
+Clone the repository to your local machine.
 
 ```bash
+# Clone the repository
+git clone https://github.com/your-username/your-portfolio.git
+
+# Navigate into the project directory
+cd your-portfolio
+
+```bash
+# With npm
+npm install
+
+# Or with yarn
+yarn install
+
+```bash
+# Run the application in development mode with npm
 npm run dev
-# or
+
+# Or with yarn
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open http://localhost:3000 in your browser to see the application.
 
+## 🔧 Available Scripts
+npm dev: Starts the application in development mode.
+npm build: Builds the application for production.
+npm start: Runs the application in production mode.
+npm lint: Lints the codebase to identify and fix syntax issues.
 
-## Deploy on Vercel
+## 📧 Contact
+If you have any questions or would like more information, feel free to reach out :
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Email: anelisegambini@yahoo.com
+LinkedIn: www.linkedin.com/in/anelisegambini
+Online Portfolio: https://portfolio-2024-dz7hpgadi-gambizzzs-projects.vercel.app/
