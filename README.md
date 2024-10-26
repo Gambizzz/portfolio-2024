@@ -32,19 +32,18 @@ git clone https://github.com/your-username/your-portfolio.git
 # Navigate into the project directory
 cd your-portfolio
 
-```bash
 # With npm
 npm install
 
 # Or with yarn
 yarn install
 
-```bash
 # Run the application in development mode with npm
 npm run dev
 
 # Or with yarn
 yarn dev
+```
 
 Then open http://localhost:3000 in your browser to see the application.
 
